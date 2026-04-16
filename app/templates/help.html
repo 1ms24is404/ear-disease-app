@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help - Ear Disease Classification System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1>🏥 Ear Disease Classification System</h1>
+                <p class="subtitle">AI-powered diagnosis using image and symptom analysis</p>
+            </div>
+        </header>
+
+        <nav class="navbar">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/help" class="nav-link active">Help</a>
+        </nav>
+
+        <main class="main-content">
+            <div class="form-container">
+                <h2 style="color: #667eea; margin-bottom: 30px; border-bottom: 2px solid #f0f0f0; padding-bottom: 15px;">Help & Information</h2>
+
+                <!-- Overview Section -->
+                <div class="form-section">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">📌 Overview</h3>
+                    <p style="line-height: 1.6; margin-bottom: 15px;">
+                        The Ear Disease Classification System is an AI-powered tool designed to help analyze ear conditions 
+                        using both otoscopic images and symptom information. The system combines machine learning models to 
+                        provide comprehensive diagnostic assistance.
+                    </p>
+                    <div class="info-banner">
+                        ⚠️ <strong>Important Disclaimer:</strong> This system is for educational purposes only and should NOT be 
+                        used as a substitute for professional medical diagnosis. Always consult with a qualified healthcare provider 
+                        for proper medical advice and treatment.
+                    </div>
+                </div>
+
+                <!-- How It Works Section -->
+                <div class="form-section">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">🔬 How It Works</h3>
+                    
+                    <h4 style="color: #555; margin-top: 20px; margin-bottom: 10px;">1. Image Analysis (Vision Transformer)</h4>
+                    <p style="line-height: 1.6; margin-bottom: 15px;">
+                        The system uses a Vision Transformer (ViT) neural network trained on otoscopic images to analyze the 
+                        visual characteristics of the ear. It examines features like eardrum appearance, inflammation, and other 
+                        visual indicators.
+                    </p>
+
+                    <h4 style="color: #555; margin-top: 20px; margin-bottom: 10px;">2. Symptom Analysis (Random Forest)</h4>
+                    <p style="line-height: 1.6; margin-bottom: 15px;">
+                        A Random Forest classifier analyzes patient symptoms including pain, discharge, hearing loss, fever, 
+                        and other indicators to provide an independent diagnostic assessment.
+                    </p>
+
+                    <h4 style="color: #555; margin-top: 20px; margin-bottom: 10px;">3. Fusion (Decision-Level Late Fusion)</h4>
+                    <p style="line-height: 1.6; margin-bottom: 15px;">
+                        The final diagnosis combines predictions from both models using weighted averaging:
+                        <br/>
+                        <code style="background: #f5f5f5; padding: 2px 6px; border-radius: 3px;">
+                            Final Diagnosis = 80% × Image Analysis + 20% × Symptom Analysis
+                        </code>
+                    </p>
+                </div>
+
+                <!-- Disease Categories Section -->
+                <div class="form-section">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">🩺 Diseases Classification</h3>
+                    
+                    <div style="background: #f8f9ff; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
+                        <h4 style="color: #667eea; margin-bottom: 10px;">Acute Otitis Media</h4>
+                        <p style="line-height: 1.6;">
+                            A sudden ear infection characterized by inflammation of the middle ear. Common in children and 
+                            typically presents with ear pain, fever, and hearing difficulties. Requires prompt medical attention.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8f9ff; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
+                        <h4 style="color: #667eea; margin-bottom: 10px;">Chronic Otitis Media</h4>
+                        <p style="line-height: 1.6;">
+                            A long-term ear infection or inflammation of the middle ear. Often results in permanent hearing loss 
+                            and may involve eardrum perforation. Requires ongoing monitoring and management.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8f9ff; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
+                        <h4 style="color: #667eea; margin-bottom: 10px;">Cerumen Impaction</h4>
+                        <p style="line-height: 1.6;">
+                            Excessive buildup of earwax (cerumen) that blocks the ear canal. Can cause temporary hearing loss 
+                            and discomfort. Usually treatable through professional ear cleaning.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8f9ff; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
+                        <h4 style="color: #667eea; margin-bottom: 10px;">Myringosclerosis</h4>
+                        <p style="line-height: 1.6;">
+                            A condition characterized by hardening and scarring of the eardrum, often following previous 
+                            infections or surgery. Can affect hearing and requires monitoring.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8f9ff; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
+                        <h4 style="color: #667eea; margin-bottom: 10px;">Normal</h4>
+                        <p style="line-height: 1.6;">
+                            A healthy ear with no detected abnormalities. The eardrum appears normal, and there are no signs 
+                            of infection or disease.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- How to Use Section -->
+                <div class="form-section">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">📖 How to Use the System</h3>
+                    
+                    <h4 style="color: #555; margin-top: 20px; margin-bottom: 10px;">Step 1: Upload Image</h4>
+                    <ul style="list-style-position: inside; line-height: 1.8; margin-bottom: 15px;">
+                        <li>Provide a clear otoscopic image of the ear</li>
+                        <li>Supported formats: JPG, PNG, GIF</li>
+                        <li>Maximum file size: 16MB</li>
+                        <li>You can drag and drop the image or click to browse</li>
+                    </ul>
+
+                    <h4 style="color: #555; margin-top: 20px; margin-bottom: 10px;">Step 2: Select Symptoms</h4>
+                    <ul style="list-style-position: inside; line-height: 1.8; margin-bottom: 15px;">
+                        <li>Check all symptoms that apply to the patient</li>
+                        <li>Leave unchecked if symptoms are not present</li>
+                        <li>Available symptoms: Pain, Discharge, Hearing Loss, Fever, Blocked Ear, Itching, Dizziness, Tinnitus, Long Duration</li>
+                    </ul>
+
+                    <h4 style="color: #555; margin-top: 20px; margin-bottom: 10px;">Step 3: Get Diagnosis</h4>
+                    <ul style="list-style-position: inside; line-height: 1.8; margin-bottom: 15px;">
+                        <li>Click the "Get Diagnosis" button</li>
+                        <li>The system will analyze the image and symptoms</li>
+                        <li>Results will be displayed with confidence scores</li>
+                    </ul>
+
+                    <h4 style="color: #555; margin-top: 20px; margin-bottom: 10px;">Step 4: Review Results</h4>
+                    <ul style="list-style-position: inside; line-height: 1.8; margin-bottom: 15px;">
+                        <li>Image Analysis: Shows diagnosis based on the otoscopic image</li>
+                        <li>Symptom Analysis: Shows diagnosis based on reported symptoms</li>
+                        <li>Final Diagnosis: Combined result from both analyses</li>
+                        <li>Clinical Summary: Interpretation and recommendations</li>
+                    </ul>
+                </div>
+
+                <!-- Interpreting Results Section -->
+                <div class="form-section">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">📊 Understanding Results</h3>
+                    
+                    <h4 style="color: #555; margin-top: 20px; margin-bottom: 10px;">Confidence Scores</h4>
+                    <p style="line-height: 1.6; margin-bottom: 15px;">
+                        The confidence score (0-100%) indicates how certain the system is about its prediction. Higher scores 
+                        indicate stronger confidence. However, even high-confidence predictions should be verified by a healthcare 
+                        professional.
+                    </p>
+
+                    <h4 style="color: #555; margin-top: 20px; margin-bottom: 10px;">Probability Distribution</h4>
+                    <p style="line-height: 1.6; margin-bottom: 15px;">
+                        The system shows probability scores for all possible diseases. These represent the likelihood of each 
+                        condition based on the analysis. A clear winner (highest probability) suggests a more definitive diagnosis.
+                    </p>
+                </div>
+
+                <!-- Important Notes Section -->
+                <div class="form-section">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">⚠️ Important Notes</h3>
+                    <ul style="list-style-position: inside; line-height: 1.8;">
+                        <li><strong>Not a Replacement for Medical Professionals:</strong> This system is an educational tool and should never replace professional medical diagnosis.</li>
+                        <li><strong>Image Quality Matters:</strong> High-quality, clear otoscopic images produce better results.</li>
+                        <li><strong>Accuracy Limitations:</strong> AI systems can make mistakes. Always verify results with a qualified healthcare provider.</li>
+                        <li><strong>Privacy:</strong> All uploaded images are processed locally and not stored permanently.</li>
+                        <li><strong>Symptoms Completeness:</strong> Provide accurate symptom information for better diagnosis.</li>
+                    </ul>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="form-section" style="background: #f8f9ff; padding: 20px; border-radius: 8px; border-left: 4px solid #667eea;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">📧 Support</h3>
+                    <p style="line-height: 1.6;">
+                        For questions or issues, please contact the system administrators or consult with a qualified healthcare provider.
+                    </p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Ear Disease Classification System. For educational purposes only.</p>
+        </footer>
+    </div>
+</body>
+</html>

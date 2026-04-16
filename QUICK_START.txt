@@ -1,0 +1,163 @@
+🏥 EAR DISEASE CLASSIFICATION SYSTEM - QUICK START GUIDE
+
+================================================================================
+1. INSTALLATION (First Time Only)
+================================================================================
+
+Step 1: Open Command Prompt and navigate to the app directory
+    cd c:\Users\sheru\ear-disease-app
+
+Step 2: Create a virtual environment (recommended)
+    python -m venv venv
+    venv\Scripts\activate
+
+Step 3: Install dependencies
+    pip install -r requirements.txt
+
+Step 4: Verify setup (optional)
+    python verify_setup.py
+
+================================================================================
+2. STARTING THE APPLICATION
+================================================================================
+
+With virtual environment active:
+    python app.py
+
+Or use the launcher:
+    python run.py
+
+The app will be available at: http://127.0.0.1:5000
+
+================================================================================
+3. USING THE APPLICATION
+================================================================================
+
+a) Upload Ear Image
+   - Click on the upload area or drag-drop an image
+   - Supported: JPG, PNG, GIF (max 16MB)
+
+b) Select Symptoms
+   - Check all applicable symptoms:
+     • Pain
+     • Discharge
+     • Hearing Loss
+     • Fever
+     • Blocked Ear
+     • Itching
+     • Dizziness
+     • Tinnitus
+     • Long Duration
+
+c) Get Diagnosis
+   - Click "Get Diagnosis" button
+   - Wait for analysis (may take 10-30 seconds on CPU)
+
+d) Review Results
+   - Image Analysis: Vision Transformer prediction
+   - Symptom Analysis: Random Forest prediction
+   - Final Diagnosis: Fused prediction (80% image + 20% symptoms)
+   - Probabilities: Confidence scores for all diseases
+   - Clinical Summary: AI-generated explanation
+
+================================================================================
+4. USING TRAINED MODELS
+================================================================================
+
+To use your trained models from the Jupyter notebook:
+
+a) Export models from Jupyter notebook:
+   
+   After training, add to your notebook:
+   
+   from models.model_saver import save_all_models
+   save_all_models(vit_model, rf_model, label_encoder)
+
+b) Copy exported files to models/ directory:
+   - models/vit_ear_model.pth
+   - models/symptom_rf_model.pkl
+   - models/label_encoder.pkl
+
+c) Restart the application - it will now use real models
+
+================================================================================
+5. DEMO MODE
+================================================================================
+
+If models are not available, the app runs in DEMO MODE:
+- Displays mock predictions for testing the UI
+- Useful for development and understanding the interface
+- Real predictions require trained models
+
+To verify which mode is active, check console output when app starts
+
+================================================================================
+6. COMMON ISSUES & FIXES
+================================================================================
+
+Issue: "Module not found: flask"
+Solution: pip install -r requirements.txt
+
+Issue: "Port 5000 already in use"
+Solution: 
+  - Change port in app.py: app.run(port=5001)
+  - Or close other applications using port 5000
+
+Issue: Models not loading
+Solution:
+  - Check model files exist in models/ directory
+  - App will run in demo mode if models missing
+  - Check console output for error messages
+
+Issue: Slow predictions
+Solution:
+  - Install PyTorch with CUDA support for GPU acceleration
+  - Reduce image resolution in config.py
+  - Use GPU device (check verify_setup.py output)
+
+Issue: Large file upload fails
+Solution:
+  - Check file size < 16MB
+  - Verify supported format (JPG, PNG, GIF)
+  - Check upload directory permissions
+
+================================================================================
+7. STOPPING THE APPLICATION
+================================================================================
+
+Press Ctrl+C in the terminal window
+
+================================================================================
+8. DEACTIVATING VIRTUAL ENVIRONMENT
+================================================================================
+
+When done, deactivate the virtual environment:
+    deactivate
+
+================================================================================
+9. IMPORTANT DISCLAIMERS
+================================================================================
+
+⚠️  This system is for EDUCATIONAL PURPOSES ONLY
+⚠️  NOT a medical device
+⚠️  Should NOT replace professional medical diagnosis
+⚠️  Always consult qualified healthcare providers
+
+================================================================================
+10. HELP & DOCUMENTATION
+================================================================================
+
+- Full Documentation: README.md
+- Help Page: Available in app (click "Help" link)
+- Setup Verification: python verify_setup.py
+- Config File: config.py (advanced settings)
+
+================================================================================
+NEED HELP?
+
+1. Check the Help page in the application
+2. Read README.md for detailed documentation
+3. Run verify_setup.py to diagnose issues
+4. Check console output for error messages
+
+================================================================================

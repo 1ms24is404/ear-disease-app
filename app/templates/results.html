@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - Ear Disease Classification System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1>🏥 Ear Disease Classification System</h1>
+                <p class="subtitle">Analysis Results</p>
+            </div>
+        </header>
+
+        <nav class="navbar">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/help" class="nav-link">Help</a>
+        </nav>
+
+        <main class="main-content">
+            <div class="form-container">
+                <h2 style="color: #667eea; margin-bottom: 30px; text-align: center;">Your Diagnosis Results</h2>
+                
+                <!-- Results will be loaded via JavaScript -->
+                <div id="resultsContainer">
+                    <p style="text-align: center; color: #999;">Loading results...</p>
+                </div>
+
+                <div class="form-actions" style="margin-top: 30px;">
+                    <a href="/" class="btn btn-primary">Back to Home</a>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Ear Disease Classification System. For educational purposes only.</p>
+        </footer>
+    </div>
+
+    <script>
+        // This page is optional - results are displayed on the home page
+        // Redirect to home if accessed directly
+        window.location.href = '/';
+    </script>
+</body>
+</html>
