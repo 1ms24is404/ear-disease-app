@@ -32,9 +32,21 @@ pipeline {
             }
         }
 
+        stage('Tag Docker Image') {
+            steps {
+                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" tag ear-disease-app bhumisheru/ear-disease-app:latest'
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" push bhumisheru/ear-disease-app:latest'
+            }
+        }
+
         stage('Run Docker Container') {
             steps {
-                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" run -d -p 5000:5000 ear-disease-app'
+                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" run -d -p 5001:5000 ear-disease-app'
             }
         }
     }
