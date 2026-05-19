@@ -16,13 +16,13 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat 'python -m pip install -r requirements.txt'
+                bat '"C:\\Users\\amith\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" -m pip install -r requirements.txt'
             }
         }
 
         stage('Code Quality Check') {
             steps {
-                bat 'python -m py_compile app.py'
+                bat '"C:\\Users\\amith\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" -m py_compile app.py'
             }
         }
 
