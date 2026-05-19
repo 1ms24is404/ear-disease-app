@@ -28,13 +28,13 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t ear-disease-app .'
+                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" build -t ear-disease-app .'
             }
         }
 
         stage('Run Docker Container') {
             steps {
-                bat 'docker run -d -p 5000:5000 ear-disease-app'
+                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" run -d -p 5000:5000 ear-disease-app'
             }
         }
     }
